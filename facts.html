@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интересные факты | История России</title>
+  
+  <!-- Основные стили (шапка, меню) -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Стили именно для этой страницы -->
+  <link rel="stylesheet" href="./css/facts.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <a href="index.html" class="logo">
+        <img src="./img/icons/creml.svg" alt="Кремль" width="28" height="28">
+        <span>История России</span>
+      </a>
+    </div>
+    <div class="auth">
+      <span id="userName">Гость</span>
+      <button class="btn" id="logoutBtn">Выйти</button>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    
+    <!-- Боковое меню -->
+    <aside class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="index.html">Интерактивная карта</a></li>
+        <li><a href="personalities.html">Личности в истории</a></li>
+        <li><a href="facts.html" class="active">Интересные факты</a></li>
+        <li><a href="#">Архитектура</a></li>
+      </ul>
+    </aside>
+
+    <!-- Основной контент -->
+    <div class="main-container">
+      
+      <!-- БЛОК 1: История в цифрах -->
+      <div class="facts-hero">
+        <h1>История в цифрах и фактах</h1>
+        <p>Узнай неожиданные детали о прошлом нашей страны</p>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">203 см</div>
+            <div class="stat-label">Рост Петра I</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2 км</div>
+            <div class="stat-label">Толщина стен Кремля<br><small>в некоторых местах</small></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">186 дней</div>
+            <div class="stat-label">Правил Пётр III</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1 200 000</div>
+            <div class="stat-label">Книг в первой<br>публичной библиотеке</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- БЛОК 2: Игра "Миф или Правда" -->
+      <div class="myth-game-section">
+        <h2>Игра: Миф или Правда?</h2>
+        <p class="game-desc">Нажми на карточку, чтобы узнать, было ли это на самом деле.</p>
+
+        <div class="myth-grid">
+          
+          <!-- 1. Рюрик -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Рюрик был единственным правителем, призванным на Русь?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>Согласно летописи, Рюрик пришел не один, а с двумя младшими братьями — Синеусом и Трувором, которые правили в других городах, но вскоре умерли.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Олег Вещий -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Князь Олег погиб от укуса змеи, выползшей из черепа его коня?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>Это знаменитая легенда из «Повести временных лет». Волхвы предсказали Олегу смерть от коня, он отправил коня, а когда тот умер, захотел посмотреть на кости. Из черепа выползла змея и ужалила князя.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Княгиня Ольга -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Княгиня Ольга жестоко отомстила древлянам за смерть мужа?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>Летописи описывают четыре формы мести, включая сожжение города Искоростень с помощью голубей, к лапам которых привязали горящую паклю.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Святослав -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Святослав Игоревич разгромил Хазарский каганат?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>В 965 году Святослав совершил поход на Хазарию и сокрушил её столицу Итиль, положив конец господству хазар в Восточной Европе.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Владимир Святой -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Владимир Красно Солнышко крестил Русь в 988 году?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>Крещение Руси стало ключевым событием его правления. Сам князь принял крещение в Корсуни (Херсонесе) и женился на византийской принцессе Анне.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Ярослав Мудрый -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Ярослав Мудрый сам написал свод законов «Русская Правда»?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>Хотя «Русская Правда» была создана при Ярославе, он лишь начал её составление. Свод дополнялся его сыновьями и внуком Владимиром Мономахом на протяжении ста лет.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Владимир Мономах -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Шапка Мономаха была подарена Владимиру Мономаху?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>По легенде, её подарил византийский император Константин Мономах. Но на самом деле шапка была изготовлена в конце XIII–XIV веке, уже после смерти Владимира Мономаха.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Андрей Боголюбский -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Андрей Боголюбский был убит в результате заговора?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>В 1174 году он пал жертвой боярского заговора, недовольного его самовластием и переносом столицы во Владимир. Убийцы ворвались в его покои ночью.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Александр Невский -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Ледовое побоище произошло на льду Чудского озера?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>В 1242 году русские войска под командованием Александра Невского разбили рыцарей Ливонского ордена. Битва действительно произошла на льду, хотя точное место до сих пор спорно.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Иван Калита -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Иван Калита получил прозвище из-за любви к кошелькам?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>«Калита» — это старинное название кошелька или денежной сумки. Прозвище он получил за щедрость к нищим и огромные богатства, которые копил в своей казне.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. Дмитрий Донской -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Дмитрий Донской впервые передал княжение сыну без ярлыка хана?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>После победы на Куликовом поле Дмитрий впервые в истории передал великое княжение Владимирское своему сыну Василию I, не спрашивая разрешения (ярлыка) у Золотой Орды.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. Иван III -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Иван III разорвал ордынскую грамоту прямо перед ханом?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>Это художественный вымысел из фильма. На самом деле Стояние на Угре (1480) завершилось отступлением войск хана Ахмата без генерального сражения.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 13. Иван Грозный -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Иван Грозный убил своего сына Ивана посохом?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>Хотя точные обстоятельства неизвестны, большинство историков сходятся, что царевич Иван погиб от удара посохом в висок во время ссоры с отцом в 1581 году.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 14. Борис Годунов -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Борис Годунов сам захотел стать царем и отравил наследника?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>Смерть царевича Дмитрия в Угличе до сих пор вызывает споры, но вина Годунова не доказана. Он стал царем законно — его избрал Земский собор в 1598 году.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15. Михаил Федорович -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Михаилу Романову было 16 лет, когда его избрали на царство?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>Первый царь династии Романовых взошел на престол в 1613 году юным и неопытным. Первые годы страной фактически управлял его отец — патриарх Филарет.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 16. Алексей Михайлович -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Алексей Михайлович получил прозвище «Тишайший» за мягкий характер?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>Прозвище «Тишайший» означало не кротость, а титул идеального государя, блюстителя тишины и порядка в государстве. При нем произошли жестокие бунты (Медный и Соляной).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 17. Пётр I -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Пётр I ввел налог на бороды?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>В 1698 году он обязал дворян и горожан бриться. Те, кто хотел сохранить бороду, должны были платить пошлину от 30 до 100 рублей в год и носить специальный медный жетон.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 18. Елизавета Петровна -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Елизавета Петровна обожала балы и наряды?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>Императрица вошла в историю как главная модница. Считается, что после её смерти в гардеробе осталось более 15 000 платьев. Она же ввела моду на балы-маскарады.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 19. Екатерина II -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Екатерина II продала Аляску Соединенным Штатам?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>Аляску продал император Александр II в 1867 году. Екатерина II правила почти за 100 лет до этого события и не имела к продаже никакого отношения.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 20. Александр I -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Александр I не умер в Таганроге, а инсценировал смерть и стал старцем?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-false">
+                <span class="badge">Миф</span>
+                <p>Это одна из самых знаменитых легенд. Документальных подтверждений нет, а вскрытие тела проводили официальные лица. В 1926 году гробницу вскрыли, но она оказалась пуста.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 21. Николай I -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Николай I был прозван «Палкиным»?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>Император действительно уделял огромное внимание армии и жесткой дисциплине. Прозвище «Николай Палкин» появилось из-за телесных наказаний в армии, хотя сам он считал это преувеличением.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 22. Александр II -->
+          <div class="myth-card" onclick="this.classList.toggle('flipped')">
+            <div class="myth-inner">
+              <div class="myth-front">
+                <span class="myth-icon">❓</span>
+                <p>Александр II был убит террористами?</p>
+                <span class="click-hint">Нажми, чтобы узнать</span>
+              </div>
+              <div class="myth-back myth-true">
+                <span class="badge">Правда</span>
+                <p>В 1881 году император погиб от бомбы, брошенной членом организации «Народная воля» Игнатием Гриневицким. На месте покушения позже был возведен храм Спаса на Крови.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

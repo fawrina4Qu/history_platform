@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личности в истории | История России</title>
+  
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Стили именно для карусели -->
+  <link rel="stylesheet" href="./css/personalities.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <a href="index.html" class="logo">
+        <img src="./img/icons/creml.svg" alt="Кремль" width="28" height="28">
+        <span>История России</span>
+      </a>
+    </div>
+    <div class="auth">
+      <span id="userName">Гость</span>
+      <button class="btn" id="logoutBtn">Выйти</button>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    
+    <aside class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="index.html">Интерактивная карта</a></li>
+        <li><a href="personalities.html" class="active">Личности в истории</a></li>
+        <li><a href="facts.html">Интересные факты</a></li>
+        <li><a href="#">Архитектура</a></li>
+      </ul>
+    </aside>
+
+    <div class="main-container">
+      <div class="history-slider">
+        
+        <!-- Левая сторона: Фото -->
+        <div class="slider-image-container" id="imageContainer">
+          <!-- Картинки создаются через JS -->
+        </div>
+
+        <!-- Правая сторона: Информация -->
+        <div class="slider-content">
+          <h2 class="person-name" id="personName">Загрузка...</h2>
+          <div class="person-years" id="personYears"></div>
+          <div class="person-desc" id="personDesc"></div>
+          
+          <button class="btn-read-more" id="readMoreBtn">Читать подробнее →</button>
+
+          <div class="slider-controls">
+            <button class="nav-btn" id="prevBtn">←</button>
+            <div class="slider-counter">
+              <span id="currentNum">1</span> из <span id="totalNum">0</span>
+            </div>
+            <button class="nav-btn" id="nextBtn">→</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/personalities.js"></script>
+</body>
+</html>

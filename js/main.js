@@ -26,11 +26,11 @@ if (menuToggle && sidebar) {
   });
 }
 
-/// 3. ИНТЕРАКТИВНАЯ КАРТА
+// 3. ИНТЕРАКТИВНАЯ КАРТА
 document.addEventListener("DOMContentLoaded", () => {
   const points = document.querySelectorAll('.map-point');
   const popup = document.getElementById('mapPopup');
-  const sidebar = document.getElementById('sidebar'); // Берем меню
+  const sidebar = document.getElementById('sidebar');
 
   if (!popup || points.length === 0) return;
 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const popupFounded = document.getElementById('popupFounded');
   const popupHistory = document.getElementById('popupHistory');
   const popupFact = document.getElementById('popupFact');
-  const popupImage = document.getElementById('popupImage'); 
+  const popupImage = document.getElementById('popupImage');
   const popupClose = document.getElementById('popupClose');
   const nextFactBtn = document.getElementById('nextFactBtn');
 
@@ -55,16 +55,30 @@ document.addEventListener("DOMContentLoaded", () => {
       popupTitle.textContent = this.getAttribute('data-title');
       popupFounded.textContent = this.getAttribute('data-founded');
       popupHistory.textContent = this.getAttribute('data-history');
-      popupImage.src = this.getAttribute('data-image'); 
-      
+
+      // === ФИКС МИГАНИЯ КАРТИНКИ ===
+      const newSrc = this.getAttribute('data-image');
+      popupImage.style.visibility = 'hidden';
+
+      const img = new Image();
+      img.src = newSrc;
+      img.decode().then(() => {
+        popupImage.src = newSrc;
+        popupImage.style.visibility = 'visible';
+      }).catch(() => {
+        popupImage.src = newSrc;
+        popupImage.style.visibility = 'visible';
+      });
+      // =============================
+
       let factsString = this.getAttribute('data-facts');
       factsArray = factsString ? factsString.split(';') : ["Факт не найден"];
-      
+
       showRandomFact();
-      
+
       // Показываем попап
       popup.classList.add('active');
-      
+
       // Принудительно закрываем меню, если оно открыто
       if (sidebar && sidebar.classList.contains('open')) {
         sidebar.classList.remove('open');

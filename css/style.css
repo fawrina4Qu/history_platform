@@ -6,12 +6,19 @@
 }
 
 /* Цветовые переменные (чтобы потом легко менять) */
+/* Цветовые переменные */
 :root {
-  --primary-red: #6b1f1f;
-  --gold: #c9a227;
-  --bg-color: #f4f1ea;
-  --text-dark: #2c2c2c;
+  --primary-red: #393232;      /* Твой основной цвет (Шапка) */
+  --gold: #DAA288	;             /* Акцент (бывшая золотая кнопка, теперь мятная) */
+  --bg-color: #F4F1EA;         /* Оставляем светлый фон для контраста */
+  --text-dark: #ffffff;        /* Темный текст для светлого фона */
   --error-red: #d32f2f;
+  
+  /* Новые переменные для меню и градиентов */
+  --menu-bg: #8d6262;          /* Темно-зеленый для меню */
+  --menu-text: #ffffff;        /* Бежево-розовый для текста меню */
+  --grad-start: #DAA288;       /* Начало градиента */
+  --grad-end: #DAA288	;         /* Конец градиента */
 }
 
 body {
@@ -359,7 +366,7 @@ body {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 8px
 }
 
 .logo {
@@ -367,7 +374,15 @@ body {
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
+  gap: 8px;
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .header .auth {
   display: flex;
@@ -416,46 +431,57 @@ body {
 /* Боковое меню */
 .sidebar {
   width: 280px;
-  background: #521412; 
+  background: var(--menu-bg); /* Темно-зеленый #2C5B4A */
   padding: 30px 0;
-  border-right: 2px solid #3a0a0a; 
+  border-right: 2px solid #1A3A2E; /* Чуть более темная обводка для объема */
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2); 
   
-  /* Анимация выезда */
   transition: margin-left 0.3s ease-in-out;
-  flex-shrink: 0; /* Запрещаем меню сжиматься */
-  
-  /* Изначально скрываем меню за левым краем */
+  flex-shrink: 0; 
   margin-left: -280px; 
 }
 
-/* Когда JS добавляет класс .open, меню выезжает и толкает контент */
 .sidebar.open {
   margin-left: 0; 
 }
 
-.sidebar ul { list-style: none; }
+.sidebar ul { 
+  list-style: none; 
+  justify-content: center;
+  align-items: center;
+}
 
-/* ССЫЛКИ В МЕНЮ (возвращаем им цвет и убираем подчеркивание) */
+.sidebar ul li{
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  padding-right: 10px;
+}
+
+/* ССЫЛКИ В МЕНЮ */
 .sidebar a {
-  display: block;
-  color: #f4f1ea; 
+  display: flex;
+  color: #ed8d8d; /* Бежево-розовый #DAA288 */
   padding: 18px 30px;
-  text-decoration: none; /* Убирает синюю линию! */
+  text-decoration: none;
   border-left: 5px solid transparent;
   transition: all 0.3s ease;
   font-size: 16px;
   font-weight: 500;
 }
 
+/* При наведении текст становится ярче/белее, а полоска мятной */
 .sidebar a:hover,
 .sidebar a.active {
   background: rgba(0, 0, 0, 0.2); 
-  color: var(--gold); 
-  border-left-color: var(--gold); 
+  color: #FFFFFF; 
+  border-left-color: var(--gold); /* Мятный акцент #75BCA3 */
   padding-left: 35px;
 }
-
 /* Контент */
 .content {
   flex: 1;
@@ -471,7 +497,7 @@ body {
 }
 /* Приветственный блок */
 .hero {
-  background: linear-gradient(135deg, var(--primary-red) 0%, #2c2c2c 100%);
+  background: linear-gradient(#47625b, #637f88 0%, #2c2c2c 100%);
   color: #fff;
   padding: 50px 40px;
   border-radius: 14px;
@@ -532,14 +558,19 @@ body {
   border-radius: 14px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   padding: 20px; /* Отступы внутри белого блока */
+  max-height: 60vh;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
 
 /* Картинка карты */
 .map-image {
   width: 100%;
-  height: auto;
+  height: 100%;         /* Растягиваем на всю доступную высоту блока */
+  max-height: 100%;     /* Не даем вылезти за пределы родителя */
+  object-fit: contain;  /* ВАЖНО: картинка вписывается целиком, не обрезается и сохраняет пропорции */
   display: block;
-  /* Убрали transform и margin-top, чтобы картинка не обрезалась */
 }
 
 /* Метки (кружочки поверх карты) */
@@ -659,4 +690,8 @@ body {
   background-color: #f4f1ea; /* Фон, если пропорции картинки не совпадут с блоком */
   border-radius: 8px;
   margin: 0 auto 20px auto; /* Центрируем по горизонтали и делаем отступ снизу */
+}
+
+.flex {
+  display:flex;
 }

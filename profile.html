@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль правителя | История России</title>
+  
+  <!-- Подключаем твой основной файл стилей (шапка, меню) -->
+  <link rel="stylesheet" href="./css/style.css">
+  
+  <!-- Подключаем файл стилей для профиля -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <a href="index.html" class="logo">
+        <img src="./img/icons/creml.svg" alt="Кремль" width="28" height="28">
+        <span>История России</span>
+      </a>
+    </div>
+    <div class="auth">
+      <span id="userName">Гость</span>
+      <button class="btn" id="logoutBtn">Выйти</button>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="index.html">Интерактивная карта</a></li>
+        <li><a href="personalities.html">Личности в истории</a></li>
+        <li><a href="facts.html">Интересные факты</a></li>
+      </ul>
+    </aside>
+
+    <div class="main-container">
+      
+      <!-- Блок профиля (будет заполняться через JS) -->
+      <div class="profile-wrapper">
+        
+        <!-- Левая колонка: Портрет и годы -->
+        <div class="profile-sidebar">
+          <img id="profileImage" src="" alt="Портрет" class="profile-image">
+          <div class="profile-years" id="profileYears">Годы правления</div>
+        </div>
+
+        <!-- Правая колонка: Информация -->
+        <div class="profile-content">
+          <h1 id="profileName">Загрузка...</h1>
+          
+          <div class="profile-section">
+            <h2>📜 Краткая биография</h2>
+            <p id="profileDesc">Загрузка описания...</p>
+          </div>
+
+          <div class="profile-section">
+            <h2>💡 Интересные факты</h2>
+            <ul id="profileFactsList">
+              <!-- Факты добавятся сюда -->
+            </ul>
+          </div>
+          
+          <a href="personalities.html" class="back-btn">← Вернуться к карусели</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>

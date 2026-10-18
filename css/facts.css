@@ -1,0 +1,209 @@
+/* =========================================
+   БАЗОВАЯ РАСКЛАДКА
+   ========================================= */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  /* УБИРАЕМ min-height: 100vh, чтобы контент шел сразу после шапки */
+  /* И добавляем нижний отступ, чтобы последняя карточка не прилипала к краю */
+  padding-bottom: 80px; 
+}
+
+/* =========================================
+   БЛОК 1: ИСТОРИЯ В ЦИФРАХ
+   ========================================= */
+.facts-hero {
+  text-align: center;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.facts-hero h1 {
+  color: #875842;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.facts-hero p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.stat-card {
+  background: #ffffff;
+  padding: 25px 15px;
+  border-radius: 12px;
+  border-bottom: 4px solid #75BCA3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #875842;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* =========================================
+   БЛОК 2: ИГРА "МИФ ИЛИ ПРАВДА"
+   ========================================= */
+.myth-game-section {
+  width: 100%;
+  background: #f4f1ea;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+  margin-bottom: 60px; 
+}
+
+.myth-game-section h2 {
+  text-align: center;
+  color: #2C5B4A;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.game-desc {
+  text-align: center;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.myth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Карточка */
+.myth-card {
+  background-color: transparent;
+  height: 260px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.myth-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.myth-card.flipped .myth-inner {
+  transform: rotateY(180deg);
+}
+
+/* Стороны карточки */
+.myth-front, .myth-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Лицевая сторона (Вопрос) */
+.myth-front {
+  background: #ffffff;
+  border: 2px dashed #c0b5a5;
+  color: #2c2c2c;
+}
+
+.myth-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.myth-front p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.click-hint {
+  font-size: 12px;
+  color: #875842;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: auto;
+}
+
+/* Обратная сторона (Ответ) */
+.myth-back {
+  transform: rotateY(180deg);
+  color: #fff;
+}
+
+/* Правда (Зеленый) */
+.myth-true {
+  background: linear-gradient(135deg, #2C5B4A 0%, #1f4235 100%);
+}
+
+/* Миф (Коричневый) */
+.myth-false {
+  background: linear-gradient(135deg, #875842 0%, #5a392b 100%);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.myth-back p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 768px) {
+  .facts-hero h1 { font-size: 28px; }
+  .myth-game-section { padding: 25px 15px; }
+  .myth-card { height: 280px; }
+}
