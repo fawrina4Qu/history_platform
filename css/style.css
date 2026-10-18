@@ -1,0 +1,662 @@
+/* ===== БАЗОВЫЕ НАСТРОЙКИ ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Цветовые переменные (чтобы потом легко менять) */
+:root {
+  --primary-red: #6b1f1f;
+  --gold: #c9a227;
+  --bg-color: #f4f1ea;
+  --text-dark: #2c2c2c;
+  --error-red: #d32f2f;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ===== ЭКРАН АВТОРИЗАЦИИ ===== */
+.auth-body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Красивый градиент на фоне */
+  background: linear-gradient(135deg, var(--primary-red) 0%, #2c2c2c 100%);
+}
+
+.auth-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  /* Анимация появления карточки */
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-logo {
+  text-align: center;
+  color: var(--primary-red);
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+/* ===== ВКЛАДКИ ВХОД/РЕГИСТРАЦИЯ ===== */
+.auth-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #eee;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #888;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.tab:hover {
+  color: var(--primary-red);
+}
+
+.tab.active {
+  color: var(--primary-red);
+  border-bottom-color: var(--gold);
+  font-weight: bold;
+}
+
+/* ===== ФОРМЫ ===== */
+.auth-form {
+  display: none; /* По умолчанию скрыты */
+  animation: fadeIn 0.4s ease;
+}
+
+.auth-form.active {
+  display: block; /* Показываем активную */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Поля ввода */
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2);
+}
+
+/* Кнопка отправки */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary-red);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+.btn-primary:hover {
+  background: #8a2828;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Текст ошибки */
+.auth-error {
+  color: var(--error-red);
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  min-height: 20px; /* Чтобы верстка не прыгала, когда ошибки нет */
+}
+
+/* =========================================
+   ЭКРАН ПРИВЕТСТВИЯ (WELCOME)
+   ========================================= */
+/* =========================================
+   ЭКРАН ПРИВЕТСТВИЯ (WELCOME)
+   ========================================= */
+.welcome-body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Фон с гифкой */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Отправляем картинку на задний план */
+}
+
+.video-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Растягиваем на весь экран без искажений */
+  filter: grayscale(100%) contrast(1.2) brightness(0.6); /* Делаем черно-белой и темной */
+}
+
+/* Слой поверх гифки для центрирования текста */
+.welcome-overlay {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(107, 31, 31, 0.4); /* Красноватый оттенок поверх */
+}
+
+/* Карточка контента */
+.welcome-card {
+  text-align: center;
+  max-width: 620px;
+  padding: 50px 40px;
+  color: #fff;
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Имя пользователя */
+.welcome-card h1 span {
+  color: #A8C3D9; 
+  margin-bottom: 50%;
+}
+
+/* Цитата */
+/* Основная карточка приветствия (расширяем контейнер) */
+.welcome-card {
+  text-align: center;
+  max-width: 900px; /* Увеличили с 620px, чтобы цитата влезла */
+  padding: 50px 40px;
+  color: #fff;
+  animation: fadeUp 1s ease;
+}
+
+/* Цитата */
+.quote {
+  background: rgba(0, 0, 0, 0.65);
+  border-left: 6px solid #C5A059; /* Полоска стала еще толще */
+  padding: 50px 60px;             /* Огромные внутренние отступы */
+  border-radius: 16px;            /* Более мягкие углы */
+  margin: 0 auto 50px;            
+  width: 100%;                    
+  max-width: 850px;               /* Сам блок цитаты стал очень широким */
+  text-align: left;
+  animation: fadeUp 1s ease 0.3s backwards;
+  backdrop-filter: blur(4px);
+}
+
+.quote p {
+  font-size: 28px;                /* Шрифт цитаты вырос до 28px */
+  line-height: 1.6;               /* Оптимальный межстрочный интервал */
+  font-style: italic;
+  margin-bottom: 25px;            /* Отступ до автора */
+  color: #FFFFFF; 
+}
+
+.quote footer {
+  color: #C5A059; 
+  font-size: 22px;                /* Автор тоже стал крупным */
+  font-weight: 600;               
+  letter-spacing: 1px;            /* Немного разрядили буквы для стиля */
+}
+
+.quote footer {
+  color: #C5A059; 
+  font-size: 18px;                /* Увеличил шрифт автора (было 15px) */
+  font-weight: 500;               /* Сделал текст чуть плотнее */
+}
+
+.quote footer {
+  color: #C5A059; /* Автор цитаты цвета латуни */
+  font-size: 15px;
+}
+
+/* Кнопка перехода на главную */
+.btn-start {
+  background: #C5A059; /* Фон кнопки — приглушенная латунь */
+  color: #1A1A1A;      /* Темный текст */
+  border: none;
+  padding: 16px 42px;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  animation: fadeUp 1s ease 0.6s backwards;
+  box-shadow: 0 6px 24px rgba(197, 160, 89, 0.3); /* Мягкая латунная тень */
+}
+
+/* Эффект при наведении мыши на кнопку */
+.btn-start:hover {
+  background: #D4B370; /* При наведении становится чуть светлее (как отполированная латунь) */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(197, 160, 89, 0.5); /* Свечение становится ярче */
+}
+
+/* =========================================
+   СТИЛИ ДЛЯ ПОЛЕЙ ВВОДА И ГЛАЗИКА
+   ========================================= */
+
+/* Контейнер, который держит поле и глазок вместе */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Само поле ввода внутри контейнера */
+.input-wrapper input {
+  width: 100%;
+  /* Оставляем место справа, чтобы текст не залезал под глазик */
+  padding-right: 45px; 
+}
+
+/* Кнопка-глаз */
+.toggle-password {
+  position: absolute;
+  right: 10px;          /* Прижимаем к правому краю */
+  background: none;     /* Убираем серый фон */
+  border: none;         /* Убираем рамку */
+  outline: none;        /* Убираем синюю рамку при клике */
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.toggle-password:hover {
+  transform: scale(1.15); /* Легкое увеличение при наведении */
+}
+
+/* =========================================
+   ГЛАВНАЯ СТРАНИЦА (INDEX)
+   ========================================= */
+
+
+/* =========================================
+   ГЛАВНАЯ СТРАНИЦА (INDEX)
+   ========================================= */
+
+/* Шапка */
+.header {
+  background: var(--primary-red);
+  color: #fff;
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header .auth {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 15px;
+}
+
+.btn {
+  background: var(--gold);
+  color: #2c2c2c;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  font-family: inherit;
+}
+.btn:hover { background: #e0b93a; }
+
+/* Кнопка бургер-меню */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+.menu-toggle:hover {
+  transform: scale(1.1);
+  color: var(--gold);
+}
+
+/* Раскладка (главный контейнер) */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 60px);
+  overflow-x: hidden; 
+}
+
+/* Боковое меню */
+.sidebar {
+  width: 280px;
+  background: #521412; 
+  padding: 30px 0;
+  border-right: 2px solid #3a0a0a; 
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2); 
+  
+  /* Анимация выезда */
+  transition: margin-left 0.3s ease-in-out;
+  flex-shrink: 0; /* Запрещаем меню сжиматься */
+  
+  /* Изначально скрываем меню за левым краем */
+  margin-left: -280px; 
+}
+
+/* Когда JS добавляет класс .open, меню выезжает и толкает контент */
+.sidebar.open {
+  margin-left: 0; 
+}
+
+.sidebar ul { list-style: none; }
+
+/* ССЫЛКИ В МЕНЮ (возвращаем им цвет и убираем подчеркивание) */
+.sidebar a {
+  display: block;
+  color: #f4f1ea; 
+  padding: 18px 30px;
+  text-decoration: none; /* Убирает синюю линию! */
+  border-left: 5px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(0, 0, 0, 0.2); 
+  color: var(--gold); 
+  border-left-color: var(--gold); 
+  padding-left: 35px;
+}
+
+/* Контент */
+.content {
+  flex: 1;
+  padding: 40px;
+  transition: all 0.3s ease-in-out;
+  min-width: 0; /* Важно, чтобы карта не вылезала за края */
+}
+
+/* Ограничение ширины контента */
+.hero, .features {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Приветственный блок */
+.hero {
+  background: linear-gradient(135deg, var(--primary-red) 0%, #2c2c2c 100%);
+  color: #fff;
+  padding: 50px 40px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 17px;
+  opacity: 0.9;
+}
+
+/* Сетка карточек */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-dark);
+  border-left: 5px solid var(--gold);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: 0.25s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card h3 {
+  color: var(--primary-red);
+  margin-bottom: 8px;
+}
+
+/* =========================================
+   ФИНАЛЬНЫЕ СТИЛИ ДЛЯ КАРТЫ И ПОПАПА
+   ========================================= */
+
+/* Обертка карты (чтобы попап позиционировался относительно неё) */
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #f4f1ea; /* Цвет бумаги */
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  padding: 20px; /* Отступы внутри белого блока */
+}
+
+/* Картинка карты */
+.map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Убрали transform и margin-top, чтобы картинка не обрезалась */
+}
+
+/* Метки (кружочки поверх карты) */
+.map-point {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-red);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%); /* Центрируем точку по её координатам */
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.map-point:hover {
+  background-color: var(--gold);
+  transform: translate(-50%, -50%) scale(1.4); /* Увеличение при наведении */
+}
+
+/* Попап (скрыт по умолчанию) */
+/* Попап (скрыт по умолчанию) */
+.map-popup {
+  position: fixed; /* Жестко фиксируем по центру экрана */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%; /* На мобильных будет 90% */
+  max-width: 500px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 9999; /* ПОВЕРХ ВСЕГО, включая шапку и меню */
+  border-top: 6px solid var(--primary-red);
+}
+
+/* Класс, который делает попап видимым */
+.map-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Внутренности попапа */
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #888;
+}
+.popup-close:hover { color: var(--primary-red); }
+
+.map-popup h3 {
+  color: var(--primary-red);
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.popup-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  background: #f9f6ef;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.popup-fact-box {
+  background: rgba(201, 162, 39, 0.1);
+  border-left: 4px solid var(--gold);
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  min-height: 80px;
+}
+
+.popup-fact-box p {
+  font-size: 15px;
+  font-style: italic;
+  color: #333;
+}
+
+.btn-next-fact {
+  background: var(--gold);
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.2s;
+}
+.btn-next-fact:hover {
+  background: #e0b93a;
+}
+
+/* Картинка внутри попапа */
+.popup-image {
+  display: block;
+  width: 100%;          /* Картинка растягивается на всю ширину карточки */
+  max-height: 350px;    /* Но не выше 350 пикселей, чтобы не сломать экран */
+  object-fit: contain;  /* Картинка вписывается целиком, без обрезки */
+  background-color: #f4f1ea; /* Фон, если пропорции картинки не совпадут с блоком */
+  border-radius: 8px;
+  margin: 0 auto 20px auto; /* Центрируем по горизонтали и делаем отступ снизу */
+}

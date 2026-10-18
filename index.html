@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная — История России</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <a href="index.html" class="logo">📜 История России</a>
+    </div>
+    
+    <div class="auth">
+      <span>👤 <span id="userName">Гость</span></span>
+      <button class="btn" id="logoutBtn">Выйти</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    
+    <aside class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="personalities.html">👤 Личности в истории</a></li>
+        <li><a href="map.html">🗺️ Интерактивная карта</a></li>
+        <li><a href="notes.html">📄 Конспекты</a></li>
+        <li><a href="facts.html">💡 Интересные факты</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <div class="hero">
+        <h1>Изучай историю России интерактивно</h1>
+        <p>Нажми на метку на карте, чтобы узнать историю города.</p>
+      </div>
+
+      <div class="map-wrapper">
+        <!-- Картинка карты (убедись, что файл лежит в папке img) -->
+        <img src="img/map_of_russia.png" alt="Карта России" class="map-image">
+
+        <!-- МЕТКИ (позиционируются поверх картинки) -->
+        <div class="map-point" style="top: 63%; left: 22%;" 
+             data-title="Москва" data-founded="1147 г." data-history="Московское княжество"
+             data-image="img/moscow.jpg"
+             data-facts="Юрий Долгорукий считается основателем Москвы;В 1812 году Москва была занята Наполеоном;Первое упоминание в летописи датируется 1147 годом"></div>
+
+        <div class="map-point" style="top: 47%; left: 17%;" 
+             data-title="Санкт-Петербург" data-founded="1703 г." data-history="Швеция (Ингерманландия)"
+             data-image="img/spb.jpg"
+             data-facts="Основан Петром I;Был столицей империи более 200 лет;Здесь самый глубокий метрополитен в мире"></div>
+
+        <div class="map-point" style="top: 65%; left: 33%;" 
+             data-title="Казань" data-founded="1005 г." data-history="Казанское ханство"
+             data-image="img/kazan.jpg"
+             data-facts="В 1552 году взята Иваном Грозным;Крупный научный центр;Казанский Кремль — объект ЮНЕСКО"></div>
+
+        <div class="map-point" style="top: 60%; left: 43%;" 
+             data-title="Екатеринбург" data-founded="1723 г." data-history="Уральские земли"
+             data-image="img/ekb.jpg"
+             data-facts="Основан по указу Петра I;Здесь граница Европы и Азии;В 1918 году расстреляна царская семья"></div>
+        
+        <div class="map-point" style="top: 62%; left: 58%;" 
+             data-title="Новосибирск" data-founded="1893 г." data-history="Сибирский край"
+             data-image="img/nsk.jpg"
+             data-facts="Самый большой город Сибири;Появился благодаря Транссибу;Самый длинный метромост в мире"></div>
+        
+        <div class="map-point" style="top: 48%; left: 72%;" 
+             data-title="Якутск" data-founded="1632 г." data-history="Якутское ханство"
+             data-image="img/yakutsk.jpeg"
+             data-facts="Самый крупный город в зоне вечной мерзлоты;Зимой до -50°C;Институт мерзлотоведения"></div>
+             
+        <div class="map-point" style="top: 72%; left: 88%;" 
+             data-title="Владивосток" data-founded="1860 г." data-history="Китай (Маньчжурия)"
+             data-image="img/vladivostok.jpg"
+             data-facts="Основан как военный пост;Штаб Тихоокеанского флота;Расстояние до Москвы — 9000 км"></div>
+
+        <!-- ПОПАП -->
+        <div class="map-popup" id="mapPopup">
+          <button class="popup-close" id="popupClose">✕</button>
+          <h3 id="popupTitle"></h3>
+          <img id="popupImage" src="" alt="Город" class="popup-image">
+          <div class="popup-info">
+            <span><strong>Год основания:</strong> <span id="popupFounded"></span></span>
+            <span><strong>Бывшая территория:</strong> <span id="popupHistory"></span></span>
+          </div>
+          <div class="popup-fact-box">
+            <p id="popupFact"></p>
+          </div>
+          <button class="btn-next-fact" id="nextFactBtn">Ещё факт 🔄</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

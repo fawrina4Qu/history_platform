@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добро пожаловать!</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="welcome-body">
+
+  <!-- Фон с гифкой -->
+  <div class="video-bg">
+    <img src="img/bg.gif" alt="background">
+  </div>
+
+  <!-- Затемняющий слой и контент -->
+  <div class="welcome-overlay">
+    <div class="welcome-card">
+      <h1>📜 Добро пожаловать,<br><span id="welcomeName">друг</span>!</h1>
+
+      <blockquote class="quote">
+        <p id="quoteText"></p>
+        <footer id="quoteAuthor"></footer>
+      </blockquote>
+
+      <button class="btn-start" id="startBtn">Начать путешествие →</button>
+    </div>
+  </div>
+
+  <!-- Подключаем скрипт -->
+  <script src="js/welcome_user.js"></script>
+</body>
+</html>
